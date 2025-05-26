@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Usuário</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>ViewEarn - Usuário</h1>
+        <a href="/">Voltar</a>
+    </header>
+    <main>
+        <h2>Assista e Ganhe</h2>
+        <p>Digite sua carteira Solana para ganhar:</p>
+        <input type="text" id="wallet" placeholder="Sua carteira Solana">
+        <button onclick="enviarRecompensa()">Ganhar Tokens</button>
+    </main>
+    <script>
+        async function enviarRecompensa() {
+            const wallet = document.getElementById('wallet').value;
+            if (!wallet) return alert("Carteira obrigatória!");
+
+            const resposta = await fetch('/recompensar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ wallet: wallet, tokens: 1.0 })
+            });
+
+            const resultado = await resposta.json();
+            if (resultado.status === "sucesso") {
+                alert("Tokens enviados! Transação: " + resultado.tx['result']);
+            } else {
+                alert("Erro: " + resultado.mensagem);
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- Dentro de dashboard-user.html -->
+<button onclick="enviarRecompensa()">Ganhar Tokens</button>
+
+<script>
+async function enviarRecompensa() {
+    const wallet = prompt("Insira sua carteira Solana (Phantom):");
+    if (!wallet) return alert("Carteira obrigatória!");
+
+    const resposta = await fetch('/recompensar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            wallet: wallet,
+            tokens: 1.5
+        })
+    });
+
+    const resultado = await resposta.json();
+    if (resultado.status === "sucesso") {
+        alert("✅ Tokens enviados! Transação: " + resultado.tx['result']);
+    } else {
+        alert("❌ Erro: " + resultado.mensagem);
+    }
+}
+</script>

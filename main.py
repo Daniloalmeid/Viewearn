@@ -1,42 +1,39 @@
-from flask import Flask, render_template, request, redirect, url_for
-from database import db
-from models import User, Video, View
-from schemas import UserSchema, VideoSchema, ViewSchema
+from flask import Flask, render_template, request, jsonify
+from solana_transfer import enviar_token_para_usuario
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///viewearn.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db.init_app(app)
-
-with app.app_context():
-    db.create_all()
 
 @app.route('/')
-def index():
+def home():
     return render_template('index.html')
 
-@app.route('/videos')
-def videos():
-    videos = Video.query.all()
-    return render_template('video.html', videos=videos)
-
-@app.route('/dashboard/user')
+@app.route('/dashboard-user')
 def dashboard_user():
-    # Lógica para exibir o dashboard do usuário
     return render_template('dashboard-user.html')
 
-@app.route('/dashboard/creator')
+@app.route('/dashboard-creator')
 def dashboard_creator():
-    # Lógica para exibir o dashboard do criador de conteúdo
     return render_template('dashboard-creator.html')
 
-@app.route('/register/creator', methods=['GET', 'POST'])
+@app.route('/register-creator')
 def register_creator():
-    if request.method == 'POST':
-        # Lógica para registrar um novo criador de conteúdo
-        pass
     return render_template('register-creator.html')
+
+# ✅ ROTA PARA ENVIAR TOKENS AO USUÁRIO
+@app.route("/recompensar", methods=["POST"])
+def recompensar_usuario():
+    data = request.json
+    wallet = data.get("wallet")
+    tokens = data.get("tokens", 1.0)
+
+    if not wallet:
+        return jsonify({"status": "erro", "mensagem": "Carteira não informada"}), 400
+
+    try:
+        tx_response = enviar_token_para_usuario(wallet, tokens)
+        return jsonify({"status": "sucesso", "tx": tx_response}), 200
+    except Exception as e:
+        return jsonify({"status": "erro", "mensagem": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
