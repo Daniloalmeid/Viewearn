@@ -1,27 +1,49 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ViewEarn - Início</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ViewEarn - Assista e Ganhe</title>
+  <link rel="stylesheet" href="static/style.css" />
 </head>
 <body>
-    <header>
-        <h1>ViewEarn</h1>
-        <nav>
-            <a href="/dashboard-user">Sou Usuário</a>
-            <a href="/dashboard-creator">Sou Criador</a>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Ganhe tokens assistindo vídeos!</h2>
-            <p>Conecte sua carteira, assista e ganhe.</p>
-        </section>
-    </main>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">ViewEarn</div>
+      <nav class="menu" id="menu">
+        <a href="dashboard-user.html">Usuário</a>
+        <a href="dashboard-creator.html">Criador</a>
+        <button id="connectWallet">Conectar Carteira</button>
+      </nav>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1>Bem-vindo ao ViewEarn</h1>
+    <p>Assista vídeos, ganhe tokens. Simples assim.</p>
+  </main>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    document.getElementById('connectWallet').addEventListener('click', async () => {
+      if (window.solana && window.solana.isPhantom) {
+        try {
+          const resp = await window.solana.connect();
+          alert(`Carteira conectada: ${resp.publicKey}`);
+        } catch (err) {
+          console.error('Erro ao conectar a carteira:', err);
+        }
+      } else {
+        alert('Phantom Wallet não encontrada. Instale a extensão.');
+      }
+    });
+  </script>
 </body>
 </html>
-
-
