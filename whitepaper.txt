@@ -1,0 +1,136 @@
+Whitepaper – ViewEarn
+Transforme visualizações em renda real
+
+Versão 1.1 – Maio de 2025
+
+1. Resumo Executivo
+ViewEarn é uma plataforma Web3 que transforma ações simples no YouTube — como assistir vídeos, curtir e se inscrever em canais — em ganhos reais por meio do token VIEW, criado na blockchain Solana. Usuários ganham VIEW ao interagir com conteúdo, enquanto criadores recebem tokens à medida que acumulam engajamento real. Tudo é automatizado, transparente e imutável via blockchain.
+
+2. O Problema Atual
+Usuários do YouTube assistem horas de conteúdo gratuitamente sem retorno financeiro.
+
+Criadores de conteúdo lutam por engajamento real, enquanto são pagos de forma limitada pelas plataformas.
+
+Bots, fraudes e métricas falsas prejudicam a reputação e o desempenho dos vídeos.
+
+3. A Solução: ViewEarn
+ViewEarn cria um novo modelo econômico para a Creator Economy. Com base na tokenização do engajamento, o projeto recompensa ações legítimas com um token valioso no mercado.
+
+4. Blockchain e Token
+Rede: Solana (alta velocidade, baixas taxas)
+
+Token: VIEW
+
+Tipo: SPL Utility Token
+
+Supply Total: 100.000.000 VIEW
+
+5. Distribuição de Tokens
+Categoria	Percentual	Quantidade
+Recompensas para Usuários	40%	40.000.000 VIEW
+Criadores de Conteúdo	20%	20.000.000 VIEW
+Equipe e Fundadores	15%	15.000.000 VIEW
+Marketing e Parcerias	10%	10.000.000 VIEW
+Reserva Estratégica	10%	10.000.000 VIEW
+Operação e Infraestrutura	5%	5.000.000 VIEW
+
+6. Como Funciona
+Para o Usuário:
+Conecta a carteira Solana (ex: Phantom)
+
+Faz login com Google (OAuth2) para permitir análise da atividade no YouTube
+
+Assiste vídeos, curte, se inscreve em canais
+
+Ganha tokens VIEW por cada ação válida
+
+Para o Criador de Conteúdo:
+Cadastra seu canal na plataforma ViewEarn
+
+Compartilha seus vídeos no ecossistema da plataforma
+
+Cada ação válida (assistir + curtir + inscrição) feita por um usuário rende VIEW
+
+Quanto mais interações reais, maior a recompensa diária
+
+7. Recompensas – Detalhamento
+Usuário
+Assistir vídeo por 60s: 0.5 VIEW
+
+Curtir o vídeo: 0.3 VIEW
+
+Se inscrever no canal: 0.7 VIEW
+
+Total possível por vídeo: 1.5 VIEW
+
+Limite diário: 10 vídeos por dia = até 15 VIEW/dia
+
+Potencial mensal (se ativo):
+15 VIEW/dia × 30 dias = 450 VIEW/mês
+Se o token chegar a $0.10 → $45/mês
+Se chegar a $1 → $450/mês
+
+Criador de Conteúdo
+Cada ação válida em seus vídeos gera VIEW para o criador:
+
+30% da recompensa do usuário vai para o criador.
+
+Exemplo: Se o usuário ganha 1.5 VIEW → criador ganha 0.45 VIEW
+
+Exemplo realista:
+Se um criador tiver 5.000 ações válidas em um mês →
+0.45 VIEW × 5.000 = 2.250 VIEW
+Com o token a $1 → $2.250 por mês (fora o YouTube)
+
+8. Como Usuários e Criadores Podem Ficar Ricos
+Usuários
+Ao acumular tokens desde o início, você está segurando um ativo com potencial de valorização.
+
+Participar das missões diárias, convites e ações bônus te permite acumular VIEW antes do mercado aquecer.
+
+Quando o projeto escalar (milhares de usuários e parcerias), a demanda pelo token aumenta — e você já estará posicionado.
+
+Criadores
+Ganham com cada interação real nos vídeos.
+
+Podem usar o VIEW para comprar impulsionamento dentro da plataforma.
+
+Serão priorizados em campanhas, comissionamento de afiliados e destaque.
+
+Criadores grandes podem gerar renda paralela massiva, além do YouTube.
+
+9. Monetização da Plataforma
+Pré-venda do token VIEW
+
+Planos VIP com vantagens para usuários
+
+Destaque pago para criadores e marcas
+
+Taxas de movimentação (1%)
+
+Marketplace interno com uso do VIEW
+
+10. Roadmap
+Etapa	Status
+Criação do token VIEW	Em andamento
+Lançamento do MVP Web	Planejado
+Pré-venda Pública	Em breve
+App Mobile com missões	Fase 2
+Integração com Shorts/TikTok	Fase 3
+NFT de Reputação para criadores	Fase 4
+
+11. Visão de Futuro
+Plataforma descentralizada com DAO para decisões da comunidade
+
+Lançamento de NFTs com benefícios
+
+Parcerias com marcas e influenciadores
+
+Possibilidade de staking de VIEW
+
+Gameficação e ranking de usuários
+
+12. Conclusão
+ViewEarn representa a próxima geração da economia da atenção. Com um sistema justo e transparente, recompensa quem realmente movimenta a internet: os usuários e criadores.
+Você gasta tempo assistindo? Comece a ganhar com isso.
+Você cria conteúdo de qualidade? Receba o valor merecido.
