@@ -1,40 +1,195 @@
-<!-- style.css (em /static/style.css) -->
+/* Reset e base */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #0d0d0d;
+    background: linear-gradient(160deg, #0f0f0f, #1a1a1a);
+    font-family: 'Poppins', sans-serif;
     color: #f0f0f0;
-}
-header {
-    background-color: #141414;
-    padding: 1rem;
-    text-align: center;
-}
-nav a {
-    color: #f90;
-    margin: 0 1rem;
-    text-decoration: none;
-    font-weight: bold;
-}
-main {
-    padding: 2rem;
-    text-align: center;
-}
-input {
-    padding: 0.5rem;
-    margin: 1rem;
-    width: 300px;
-}
-button {
-    padding: 0.7rem 1.5rem;
-    background-color: #f90;
+    height: 100vh;
+  }
+  
+  /* Estilos reutilizáveis */
+  .container {
+    padding: 40px 20px;
+  }
+  
+  .button-primary {
+    padding: 14px 36px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+    background: linear-gradient(90deg, #ffd700, #ffa500);
     border: none;
-    color: black;
-    font-weight: bold;
+    border-radius: 10px;
     cursor: pointer;
-    border-radius: 5px;
-}
-button:hover {
-    background-color: #ffaa00;
-}
+    box-shadow: 0 0 20px rgba(255, 200, 0, 0.6);
+    transition: all 0.3s ease;
+  }
+  
+  .button-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 200, 0, 0.9);
+  }
+  
+  /* Home */
+
+
+  /* Menu de navegação */
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #111111;
+    border-bottom: 1px solid #333;
+  }
+  
+  .menu-logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ffcc00;
+  }
+  
+  .menu-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .menu-nav a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  .menu-nav a:hover {
+    color: #ffcc00;
+  }
+  
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .home-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #ffcc00, #ff9900);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(255, 200, 0, 0.4);
+    margin-bottom: 20px;
+  }
+  
+  .home-subtitle {
+    font-size: 1.25rem;
+    color: #cccccc;
+    max-width: 600px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+  
+  /* Dashboard */
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2.2rem;
+    background: linear-gradient(to right, #ffcc00, #ff9900);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(255, 200, 0, 0.4);
+  }
+  
+  .dashboard-box {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  }
+  
+  .dashboard-box h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #ffcc00;
+  }
+  
+  .dashboard-box p,
+  .dashboard-box li {
+    line-height: 1.6;
+    color: #cccccc;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #0d0d0d;
+    border-bottom: 1px solid #333;
+  }
+  
+  .menu-logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ffcc00;
+  }
+  
+  .menu-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .menu-nav a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  .menu-nav a:hover {
+    color: #ffcc00;
+  }
+  
+  .button-primary {
+    padding: 10px 18px;
+    background-color: #ffcc00;
+    color: #000;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-primary:hover {
+    background-color: #e6b800;
+  }
+  
+  .home-container {
+    text-align: center;
+    padding: 80px 20px;
+  }
+  
+  .home-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .home-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #ccc;
+  }
+  

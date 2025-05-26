@@ -1,47 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ViewEarn - Assista e Ganhe</title>
-  <link rel="stylesheet" href="static/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ViewEarn | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-  <header class="navbar">
-    <div class="container">
-      <div class="logo">ViewEarn</div>
-      <nav class="menu" id="menu">
-        <a href="dashboard-user.html">Usuário</a>
-        <a href="dashboard-creator.html">Criador</a>
-        <button id="connectWallet">Conectar Carteira</button>
-      </nav>
-      <button class="menu-toggle" id="menuToggle">☰</button>
-    </div>
+
+  <!-- Menu de navegação -->
+  <header class="menu">
+    <div class="menu-logo">🎥 ViewEarn</div>
+    <nav class="menu-nav">
+      <a href="index.html">🏠 Início</a>
+      <a href="dashboard-user.html">👤 Usuário</a>
+      <a href="dashboard-creator.html">🎬 Criador</a>
+      <button class="button-primary" id="walletButton" onclick="connectWallet()">Conectar Carteira</button>
+    </nav>
   </header>
 
-  <main class="main-content">
-    <h1>Bem-vindo ao ViewEarn</h1>
-    <p>Assista vídeos, ganhe tokens. Simples assim.</p>
+  <!-- Conteúdo principal -->
+  <main class="home-container">
+    <h1 class="home-title">Ganhe tokens assistindo vídeos</h1>
+    <p class="home-subtitle">Conecte sua carteira Phantom e comece a acumular recompensas apoiando criadores de conteúdo.</p>
+    <button class="button-primary" id="mainConnectBtn" onclick="connectWallet()">Conectar com Phantom</button>
   </main>
 
   <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const menu = document.getElementById('menu');
-
-    menuToggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
-
-    document.getElementById('connectWallet').addEventListener('click', async () => {
+    async function connectWallet() {
       if (window.solana && window.solana.isPhantom) {
         try {
-          const resp = await window.solana.connect();
-          alert(`Carteira conectada: ${resp.publicKey}`);
+          const response = await window.solana.connect();
+          const pubkey = response.publicKey.toString();
+          localStorage.setItem("walletConnected", "true");
+          localStorage.setItem("walletAddress", pubkey);
+          alert("Carteira conectada: " + pubkey);
+
+          document.getElementById("walletButton").style.display = "none";
+          document.getElementById("mainConnectBtn").style.display = "none";
         } catch (err) {
-          console.error('Erro ao conectar a carteira:', err);
+          console.error("Erro ao conectar:", err);
         }
       } else {
-        alert('Phantom Wallet não encontrada. Instale a extensão.');
+        alert("Phantom Wallet não encontrada. Instale: https://phantom.app/");
+      }
+    }
+
+    // Esconder botão se já estiver conectado
+    window.addEventListener("DOMContentLoaded", () => {
+      const isConnected = localStorage.getItem("walletConnected");
+      if (isConnected === "true") {
+        document.getElementById("walletButton").style.display = "none";
+        document.getElementById("mainConnectBtn").style.display = "none";
       }
     });
   </script>

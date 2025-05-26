@@ -1,43 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard do Usuário</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard do Usuário | ViewEarn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    <header>
-        <h1>ViewEarn - Usuário</h1>
-        <a href="/">Voltar</a>
-    </header>
-    <main>
-        <h2>Assista e Ganhe</h2>
-        <p>Digite sua carteira Solana para ganhar:</p>
-        <input type="text" id="wallet" placeholder="Sua carteira Solana">
-        <button onclick="enviarRecompensa()">Ganhar Tokens</button>
-    </main>
-    <script>
-        async function enviarRecompensa() {
-            const wallet = document.getElementById('wallet').value;
-            if (!wallet) return alert("Carteira obrigatória!");
+  <div class="container">
+    <div class="dashboard-header">
+      <h1>ViewEarn - Usuário</h1>
+      <button class="button-primary" onclick="connectWallet()">Conectar Carteira</button>
+    </div>
 
-            const resposta = await fetch('/recompensar', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ wallet: wallet, tokens: 1.0 })
-            });
+    <div class="dashboard-box">
+      <h2>Bem-vindo ao seu painel!</h2>
+      <p>Aqui você poderá:</p>
+      <ul>
+        <li>▶️ Assistir vídeos e ganhar tokens</li>
+        <li>💼 Ver seu saldo e transações</li>
+        <li>🎯 Acompanhar seu progresso diário</li>
+        <li>🔒 Sacar ou gastar seus tokens</li>
+      </ul>
+    </div>
+  </div>
 
-            const resultado = await resposta.json();
-            if (resultado.status === "sucesso") {
-                alert("Tokens enviados! Transação: " + resultado.tx['result']);
-            } else {
-                alert("Erro: " + resultado.mensagem);
-            }
+  <script>
+    async function connectWallet() {
+      if (window.solana && window.solana.isPhantom) {
+        try {
+          const response = await window.solana.connect();
+          alert("Carteira conectada: " + response.publicKey.toString());
+        } catch (err) {
+          console.error("Erro ao conectar:", err);
         }
-    </script>
+      } else {
+        alert("Phantom Wallet não encontrada. Instale a extensão: https://phantom.app/");
+      }
+    }
+  </script>
 </body>
 </html>
+
 
 
 
