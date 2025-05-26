@@ -2,29 +2,26 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ViewEarn | Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../static/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ViewEarn | Início</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../static/style.css" />
 </head>
 <body>
 
-  <!-- Menu de navegação -->
   <header class="menu">
     <div class="menu-logo">🎥 ViewEarn</div>
     <nav class="menu-nav">
-      <a href="index.html">🏠 Início</a>
+      <a href="home.html" class="active">🏠 Início</a>
       <a href="dashboard-user.html">👤 Usuário</a>
       <a href="dashboard-creator.html">🎬 Criador</a>
-      <button class="button-primary" id="walletButton" onclick="connectWallet()">Conectar Carteira</button>
+      <button id="walletButton" class="button-primary" onclick="connectWallet()">Conectar Carteira</button>
     </nav>
   </header>
 
-  <!-- Conteúdo principal -->
   <main class="home-container">
     <h1 class="home-title">Ganhe tokens assistindo vídeos</h1>
     <p class="home-subtitle">Conecte sua carteira Phantom e comece a acumular recompensas apoiando criadores de conteúdo.</p>
-    <button class="button-primary" id="mainConnectBtn" onclick="connectWallet()">Conectar com Phantom</button>
   </main>
 
   <script>
@@ -35,26 +32,23 @@
           const pubkey = response.publicKey.toString();
           localStorage.setItem("walletConnected", "true");
           localStorage.setItem("walletAddress", pubkey);
-          alert("Carteira conectada: " + pubkey);
-
+          alert("Carteira conectada com sucesso!");
           document.getElementById("walletButton").style.display = "none";
-          document.getElementById("mainConnectBtn").style.display = "none";
         } catch (err) {
-          console.error("Erro ao conectar:", err);
+          console.error("Erro ao conectar carteira:", err);
         }
       } else {
-        alert("Phantom Wallet não encontrada. Instale: https://phantom.app/");
+        alert("Phantom Wallet não encontrada. Instale a extensão: https://phantom.app/");
       }
     }
 
-    // Esconder botão se já estiver conectado
     window.addEventListener("DOMContentLoaded", () => {
-      const isConnected = localStorage.getItem("walletConnected");
-      if (isConnected === "true") {
-        document.getElementById("walletButton").style.display = "none";
-        document.getElementById("mainConnectBtn").style.display = "none";
+      const button = document.getElementById("walletButton");
+      if (localStorage.getItem("walletConnected") === "true" && button) {
+        button.style.display = "none";
       }
     });
   </script>
+
 </body>
 </html>
